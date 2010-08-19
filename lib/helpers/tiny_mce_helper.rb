@@ -8,7 +8,8 @@ module MachinedRails::Helpers
     theme : "#{theme}"
   });
   });
-      END
+END
+      end
     end
   end
 end
