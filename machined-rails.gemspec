@@ -10,6 +10,11 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = [
   ]
   s.files = [
+    "lib/machined-rails.rb",
+    "lib/helpers/developer_helper.rb",
+    "lib/helpers/dependency_helper.rb",
+    "lib/helpers/title_helper.rb",
+    "lib/helpers/attributes_helper.rb"
   ]
   s.homepage = %q{http://github.com/jlewallen/machined-rails}
   s.rdoc_options = ["--charset=UTF-8"]
