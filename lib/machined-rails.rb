@@ -27,10 +27,14 @@ module MachinedRails
     initializer "machined-rails.i18n" do
       ActionController::Base.send :extend, MachinedRails::I18n::TranslationScopeHelper
       ActionController::Base.send :include, MachinedRails::I18n::TranslationScopeHelper
-      ActiveRecord::Base.send :extend, MachinedRails::I18n::TranslationScopeHelper
-      ActiveRecord::Base.send :include, MachinedRails::I18n::TranslationScopeHelper
-      ActionMailer::Base.send :extend, MachinedRails::I18n::TranslationScopeHelper
-      ActionMailer::Base.send :include, MachinedRails::I18n::TranslationScopeHelper
+      if defined?(ActiveRecord)
+        ActiveRecord::Base.send :extend, MachinedRails::I18n::TranslationScopeHelper
+        ActiveRecord::Base.send :include, MachinedRails::I18n::TranslationScopeHelper
+      end
+      if defined?(ActionMailer)
+        ActionMailer::Base.send :extend, MachinedRails::I18n::TranslationScopeHelper
+        ActionMailer::Base.send :include, MachinedRails::I18n::TranslationScopeHelper
+      end
       ActionView::Base.send :include, MachinedRails::I18n::TranslationScopeHelper
     end
   end
